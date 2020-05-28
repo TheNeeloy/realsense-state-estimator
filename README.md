@@ -18,6 +18,8 @@ The goal of this project is to interface with the D435i RealSense camera to esti
     - Tests written in notebooks to become familiar with the RealSense camera.
 - reading_resources/
     - Holds some papers that helped me along the way.
+- QR_Code_Locations.zip
+    - Zipped folder holding PNGs of QR codes encoded with x, y, z position in meters. The name of each file is the same as the respective code's enocded position in meters.
 
 ## Dependencies  
 The versions of installed python modules that have this code working on my local machine are as follows:
@@ -27,8 +29,10 @@ The versions of installed python modules that have this code working on my local
 - pyrealsense2 - 2.32.1.1299
 - opencv - 4.1.2
 
-## Running Example
-Run `python main.py` from main directory.
+## Running Example  
+1. Print out as many QR codes as needed, and place them on the floor in the real world depending on their encoded positions. For example, the `0.5,2,0` QR code should be 0.5 meters to the right & 2 meters ahead of the `0,0,0` QR code.  
+2. Run `python main.py` from main directory.  
+3. View the camera stream on the laptop as the camera is moved in different locations around the floor. 
 
 ## Future Goals
 The camera localization is dependent on physically placed QR codes in the real world, which are prone to degredation over time, or may be missed by the view of the camera. I'd like to implement a SLAM algorithm which will first map the robot's surroundings into a point cloud, and then given a goal, find a path to that goal while checking for humans and obstacles along the way. Most of the implementations I have found use the D435i & T265 cameras in conjunction, but here are a few tutorials that use only the D435i I found that seem ok in my opinion:
